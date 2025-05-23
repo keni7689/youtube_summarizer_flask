@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block content %}
+<header class="header">
+  <div class="logo">
+    <i class="fab fa-youtube"></i>
+    <h1>YouTube Summarizer</h1>
+  </div>
+  <p class="subtitle">Transform YouTube videos into concise summaries</p>
+</header>
+
+<main class="main-content">
+  <div class="input-section">
+    <div class="input-group">
+      <input
+        type="url"
+        id="videoUrl"
+        placeholder="Paste YouTube URL here..."
+        class="url-input"
+      />
+      <button id="analyzeBtn" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+        Analyze
+      </button>
+    </div>
+
+    <div id="languageSection" class="language-section hidden">
+      <label for="languageSelect">Select transcript language:</label>
+      <select id="languageSelect" class="language-select">
+        <option value="">Choose language...</option>
+      </select>
+      <button id="summarizeBtn" class="btn btn-secondary">
+        <i class="fas fa-magic"></i>
+        Generate Summary
+      </button>
+    </div>
+  </div>
+
+  <div id="videoPreview" class="video-preview hidden">
+    <img id="videoThumbnail" src="" alt="Video thumbnail" class="thumbnail" />
+    <a id="videoLink" href="" target="_blank" class="video-link">
+      <i class="fas fa-external-link-alt"></i>
+      Open on YouTube
+    </a>
+  </div>
+
+  <div id="resultsSection" class="results-section hidden">
+    <div class="result-card">
+      <h2><i class="fas fa-file-alt"></i> Summary</h2>
+      <div id="summaryContent" class="content"></div>
+      <button id="downloadSummary" class="btn btn-download">
+        <i class="fas fa-download"></i>
+        Download Summary
+      </button>
+    </div>
+
+    <div class="result-card">
+      <h2><i class="fas fa-transcript"></i> Full Transcript</h2>
+      <div id="transcriptContent" class="content transcript-content"></div>
+      <button id="downloadTranscript" class="btn btn-download">
+        <i class="fas fa-download"></i>
+        Download Transcript
+      </button>
+    </div>
+  </div>
+
+  <div id="errorMessage" class="error-message hidden">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span id="errorText">Something went wrong. Please try again.</span>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2024 YouTube Summarizer. Powered by AI.</p>
+</footer>
+{% endblock %}
