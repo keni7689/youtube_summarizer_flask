@@ -1,5 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import os
+import time
+import random
+
+# Add delays between requests
+def add_request_delay():
+    time.sleep(random.uniform(2, 5))
+    
 from utils.youtube_utils import (
     extract_languages, 
     extract_transcript, 
