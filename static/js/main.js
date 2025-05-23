@@ -196,3 +196,14 @@ function isValidYouTubeUrl(url) {
 
     return patterns.some(pattern => pattern.test(url));
 }
+
+// Add this to your main.js
+function showUserFriendlyError(error) {
+    if (error.includes('Too Many Requests')) {
+        showError('YouTube is temporarily blocking requests. Please try again in a few minutes or try a different video.');
+    } else if (error.includes('Transcript')) {
+        showError('This video doesn\'t have captions available. Please try a different video.');
+    } else {
+        showError(error);
+    }
+}
